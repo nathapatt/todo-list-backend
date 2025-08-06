@@ -8,7 +8,7 @@ import { JwtStrategy } from './jwt.strategy';
 @Module({
   imports: [
     JwtModule.register({
-      secret: 'supersecretkey', // <-- ตรงนี้ให้เอาออกไปเป็น .envได้
+      secret: process.env.JWT_SECRET || 'supersecretkey',
       signOptions: { expiresIn: '1d' },
     }),
   ],
